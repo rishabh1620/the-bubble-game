@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bubble Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="heading">
+            <div>
+                <p class="text">The</p>
+            </div>
+            <div class="bubble-animmation" onmouseover="changeInnerHTML(this)" onmouseout="restoreInnerHTML(this)">
+                <p class="text">Bubble</p>
+            </div>
+            <div>
+                <p class="text">Game</p>
+            </div>
+        </div>
+        <div id="container">
+            <div id="ctop">
+                <div class="box">
+                    <h3>Hit</h4>
+                    <div id="hitval" class="score">5</div>
+                </div>
+                <div class="box">
+                    <h3>Timer</h4>
+                    <div id="timerval" class="score">60</div>
+                </div>
+                <div class="box">
+                    <h3>Score</h4>
+                    <div id="scoreval" class="score">0</div>
+                </div>
+            </div>
+            <div id="cbtm">
+                <div class="bubble">5</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
