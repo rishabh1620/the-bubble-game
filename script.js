@@ -1,7 +1,12 @@
+
+
 let timer = 60;
 let score = 0;
 let hitrn = 0;
 
+const reset = () => {
+  window.location.reload()
+}
 function increaseScore() {
   score += 10;
   document.querySelector("#scoreval").textContent = score;
@@ -14,10 +19,10 @@ function getNewHit() {
 
 function makeBubble() {
   let clutter = "";
-
-  for (let i = 1; i <= 176; i++) {
+  const bubbleCount = window.innerWidth <= 400 ? 50 : 176;
+  for (let i = 1; i <= bubbleCount; i++) {
     let rn = Math.floor(Math.random() * 10);
-    clutter += `<div class="bubble">${rn}</div>`;
+    clutter += `<div id=${i} class="bubble">${rn}</div>`;
   }
 
   document.querySelector("#cbtm").innerHTML = clutter;
@@ -30,17 +35,26 @@ function runTimer() {
       document.querySelector("#timerval").textContent = timer;
     } else {
       clearInterval(timerint);
-      document.querySelector("#cbtm").innerHTML = `<h2>Game Over</h2>`;
+      document.querySelector("#cbtm").innerHTML = `<div class="reset">
+      <h2>Game Over</h2><button class="btn" onClick="reset()">Play Again</button></div>`;
+
     }
   }, 1000);
 }
 
 document.querySelector("#cbtm").addEventListener("click", function (num) {
+  console.log(num.target);
   let bubblenum = Number(num.target.textContent);
   if (bubblenum === hitrn) {
-    increaseScore();
-    makeBubble();
-    getNewHit();
+    num.target.classList.add("shake");
+    num.target.style.opacity = 0;
+    num.target.style.scale = 2;
+    setTimeout(() => {
+      increaseScore();
+      makeBubble();
+      getNewHit();
+      num.target.classList.remove("shake");
+    }, 500);
   }
 });
 

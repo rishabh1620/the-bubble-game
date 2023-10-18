@@ -99,15 +99,33 @@ html,body{
     background-color: #6643b5;
     color: #fff;
     font-weight: 500;
-    transition: transform .2s;
+    transition: all 0.5s;
+    opacity: 100%;
+    
 }
 
+.pop {
+  opacity: 0%;
+  transform: scale(200%);
+}
 .bubble:hover{
     background-color: #430f58;
     cursor: pointer;
     transform: scale(1.1);
 }
 
+.btn {
+  padding: 1rem 2rem;
+  font-weight: bolder;
+}
+
+.reset {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* kits */
 
 .ball {
@@ -251,5 +269,7 @@ html,body{
         flex-direction: column;
         gap: 0.5rem;
       }
-
+      #cbtm {
+        overflow: scroll;
+      }
     }
